@@ -2,7 +2,7 @@
 :root {
     --white-color:                  #ffffff;
     --primary-color:                #00a32b;
-    --secondary-color:              #eeee07;
+    --secondary-color:              #FEB900;
     --section-bg-color:             #f0f8ff;
     --custom-btn-bg-color:          #EE5007;
     --custom-btn-bg-hover-color:    #c01f27;
@@ -20,7 +20,7 @@
     --h5-font-size:                 24px;
     --h6-font-size:                 22px;
     --p-font-size:                  18px;
-    --btn-font-size:                14px;
+    --btn-font-size:                16px;
     --copyright-font-size:          16px;
   
     --border-radius-large:          100px;
@@ -33,7 +33,7 @@
   }
   
   body {
-    background-color: var(--white-color);
+    background-color: var(--dark-color);
     font-family: var(--body-font-family); 
   }
   
@@ -116,87 +116,6 @@
     font-weight: var(--font-weight-bold);
   }
   
-  .link-fx-1 {
-    color: var(--white-color);
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    height: 32px;
-    padding: 0 6px;
-    text-decoration: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  .link-fx-1:hover {
-    color: var(--link-hover-color);
-  }
-  
-  .link-fx-1:hover::before {
-    transform: translateX(17px) scaleX(0);
-    transition: transform .2s;
-  }
-  
-  .link-fx-1:hover .icon circle {
-    stroke-dashoffset: 200;
-    transition: stroke-dashoffset .2s .1s;
-  }
-  
-  .link-fx-1:hover .icon line {
-    transform: rotate(-180deg);
-  }
-  
-  .link-fx-1:hover .icon line:last-child {
-    transform: rotate(180deg);
-  }
-  
-  .link-fx-1::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: currentColor;
-    transform-origin: right center;
-    transition: transform .2s .1s;
-  }
-  
-  .link-fx-1 .icon {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    transform: translateX(100%) rotate(90deg);
-    font-size: 32px;
-  }
-  
-  .icon {
-    --size: 1em;
-    height: var(--size);
-    width: var(--size);
-    display: inline-block;
-    color: inherit;
-    fill: currentColor;
-    line-height: 1;
-    flex-shrink: 0;
-    max-width: initial;
-  }
-  
-  .link-fx-1 .icon circle {
-    stroke-dasharray: 100;
-    stroke-dashoffset: 100;
-    transition: stroke-dashoffset .2s;
-  }
-  
-  .link-fx-1 .icon line {
-    transition: transform .4s;
-    transform-origin: 13px 15px;
-  }
-  
-  .link-fx-1 .icon line:last-child {
-    transform-origin: 19px 15px;
-  }
-  
   
   /*---------------------------------------
     SECTION               
@@ -207,7 +126,7 @@
   }
   
   .section-bg {
-    background-color: var(--section-bg-color);
+    background-color: var(--dark-color);
   }
   
   .section-overlay {
@@ -256,11 +175,13 @@
     background: var(--white-color);
     box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
     color: var(--primary-color);
+    font-family: 'Roboto' sans-serif;
   }
   
   .nav-tabs h5 {
     color: var(--p-color); 
     margin-bottom: 0;
+    text-transform: uppercase;
   }
   
   .nav-tabs .nav-link.active h5,
@@ -282,19 +203,20 @@
     CUSTOM BUTTON               
   -----------------------------------------*/
   .custom-btn {
-    background: var(--custom-btn-bg-color);
-    border: 2px solid transparent;
+    background: var(--primary-color);
+    border: 3px solid ;
+    border-color: var(--primary-color);
     border-radius: var(--border-radius-large);
     color: var(--white-color);
     font-size: var(--btn-font-size);
     font-weight: var(--font-weight-bold);
     line-height: normal;
     transition: all 0.3s;
-    padding: 10px 20px;
+    padding: 15px 50px;
   }
   
   .custom-btn:hover {
-    background: var(--custom-btn-bg-hover-color);
+    background: var(--secondary-color);
     color: var(--white-color);
   }
   
@@ -321,10 +243,14 @@
     VIDEO              
   -----------------------------------------*/
   .video-wrap {
-    z-index: 0;
+    
+    content: "";
+    z-index: 1;
     opacity: .9;
-    background-color: #717275;
+    fill-opacity: 50%;
+    inset: 0;
   }
+  
   
   .custom-video {
     position: absolute;
@@ -362,7 +288,11 @@
   }
   
   .navbar {
-    background: transparent;
+background: rgba(255, 255, 255, 0.03);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(2.1px);
+-webkit-backdrop-filter: blur(2.1px);
+
     z-index: 9;
   }
   
@@ -375,7 +305,7 @@
   
   .navbar-expand-lg .navbar-nav .nav-link {
     border-radius: var(--border-radius-large);
-    margin: 10px;
+    margin: 5px;
     padding: 10px 20px;
   }
   
@@ -387,6 +317,8 @@
     position: relative;
     padding-top: 15px;
     padding-bottom: 15px;
+    text-transform: uppercase;
+    font-family: 'Roboto' sans-serif;
   }
   
   .navbar-nav .nav-link.active, 
@@ -471,10 +403,6 @@
     height: calc(100vh - 51px);
   }
   
-  .hero-section small {
-    color: var(--white-color);
-    text-transform: uppercase;
-  }
   
   .hero-section .section-overlay {
     z-index: 2;
